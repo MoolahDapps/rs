@@ -29,6 +29,7 @@ defmodule BlockScoutWeb.Endpoint do
       mstile-150x150.png
       safari-pinned-tab.svg
       robots.txt
+      og-image.png
     ),
     only_matching: ~w(manifest)
   )
@@ -59,13 +60,11 @@ defmodule BlockScoutWeb.Endpoint do
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
-
   plug(
     Plug.Session,
-    store: BlockScoutWeb.Plug.RedisCookie,
+    store: :cookie,
     key: "_explorer_key",
-    signing_salt: "iC2ksJHS",
-    same_site: "Lax"
+    signing_salt: "iC2ksJHS"
   )
 
   use SpandexPhoenix

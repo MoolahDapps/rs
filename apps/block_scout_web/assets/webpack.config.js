@@ -69,10 +69,8 @@ const appJs =
       'search-results': './js/pages/search-results/search.js',
       'token-overview': './js/pages/token/overview.js',
       'export-csv': './css/export-csv.scss',
-      'csv-download': './js/lib/csv_download.js',
-      'dropzone': './js/lib/dropzone.js',
-      'delete-item-handler': './js/pages/account/delete_item_handler.js',
-      'public-tags-request-form': './js/lib/public_tags_request_form.js'
+      'datepicker': './js/lib/datepicker.js',
+      'dropzone': './js/lib/dropzone.js'
     },
     output: {
       filename: '[name].js',
@@ -158,7 +156,11 @@ const appJs =
       new ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
       new webpack.DefinePlugin({
         'process.env.SOCKET_ROOT': JSON.stringify(process.env.SOCKET_ROOT),
-        'process.env.NETWORK_PATH': JSON.stringify(process.env.NETWORK_PATH)
+        'process.env.NETWORK_PATH': JSON.stringify(process.env.NETWORK_PATH),
+        'process.env.CHAIN_ID': JSON.stringify(process.env.CHAIN_ID),
+        'process.env.JSON_RPC': JSON.stringify(process.env.JSON_RPC),
+        'process.env.SUBNETWORK': JSON.stringify(process.env.SUBNETWORK),
+        'process.env.COIN_NAME': JSON.stringify(process.env.COIN_NAME)
       }),
       new webpack.ProvidePlugin({
         process: 'process/browser',

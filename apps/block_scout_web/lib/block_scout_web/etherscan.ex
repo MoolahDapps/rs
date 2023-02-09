@@ -106,8 +106,7 @@ defmodule BlockScoutWeb.Etherscan do
         "transactionHash" => "0xd65b788c610949704a5f9aac2228c7c777434dfe11c863a12306f57fcbd8cdbb",
         "index" => "0",
         "input" => "",
-        "type" => "call",
-        "callType" => "delegatecall",
+        "type" => "create",
         "gas" => "814937",
         "gasUsed" => "536262",
         "isError" => "0",
@@ -807,11 +806,6 @@ defmodule BlockScoutWeb.Etherscan do
         definition: ~s(Possible values: "create", "call", "reward", or "selfdestruct"),
         example: ~s("create")
       },
-      callType: %{
-        type: "type",
-        definition: ~s(Possible values: "call", "callcode", "delegatecall", or "staticcall"),
-        example: ~s("delegatecall")
-      },
       gas: @gas_type,
       gasUsed: @gas_type,
       isError: %{
@@ -1406,12 +1400,12 @@ defmodule BlockScoutWeb.Etherscan do
           "A string representing the order by block number direction. Defaults to descending order. Available values: asc, desc"
       },
       %{
-        key: "start_block",
+        key: "startblock",
         type: "integer",
         description: "A nonnegative integer that represents the starting block number."
       },
       %{
-        key: "end_block",
+        key: "endblock",
         type: "integer",
         description: "A nonnegative integer that represents the ending block number."
       },
@@ -1428,7 +1422,7 @@ defmodule BlockScoutWeb.Etherscan do
           "A nonnegative integer that represents the maximum number of records to return when paginating. 'page' must be provided in conjunction."
       },
       %{
-        key: "filter_by",
+        key: "filterby",
         type: "string",
         description: """
         A string representing the field to filter by. If none is given
@@ -1437,12 +1431,12 @@ defmodule BlockScoutWeb.Etherscan do
         """
       },
       %{
-        key: "start_timestamp",
+        key: "starttimestamp",
         type: "unix timestamp",
         description: "Represents the starting block timestamp."
       },
       %{
-        key: "end_timestamp",
+        key: "endtimestamp",
         type: "unix timestamp",
         description: "Represents the ending block timestamp."
       }
@@ -1499,13 +1493,13 @@ defmodule BlockScoutWeb.Etherscan do
           "A string representing the order by block number direction. Defaults to ascending order. Available values: asc, desc. WARNING: Only available if 'address' is provided."
       },
       %{
-        key: "start_block",
+        key: "startblock",
         type: "integer",
         description:
           "A nonnegative integer that represents the starting block number. WARNING: Only available if 'address' is provided."
       },
       %{
-        key: "end_block",
+        key: "endblock",
         type: "integer",
         description:
           "A nonnegative integer that represents the ending block number. WARNING: Only available if 'address' is provided."
@@ -1574,12 +1568,12 @@ defmodule BlockScoutWeb.Etherscan do
           "A string representing the order by block number direction. Defaults to ascending order. Available values: asc, desc"
       },
       %{
-        key: "start_block",
+        key: "startblock",
         type: "integer",
         description: "A nonnegative integer that represents the starting block number."
       },
       %{
-        key: "end_block",
+        key: "endblock",
         type: "integer",
         description: "A nonnegative integer that represents the ending block number."
       },
@@ -2316,18 +2310,6 @@ defmodule BlockScoutWeb.Etherscan do
         type: "string",
         description:
           "Ensures that none of the returned contracts were decompiled with the provided version. Ignored unless filtering for decompiled contracts."
-      },
-      %{
-        key: "verified_at_start_timestamp",
-        type: "unix timestamp",
-        description:
-          "Represents the starting timestamp when contracts verified. Taking into account only with `verified` filter."
-      },
-      %{
-        key: "verified_at_end_timestamp",
-        type: "unix timestamp",
-        description:
-          "Represents the ending timestamp when contracts verified. Taking into account only with `verified` filter."
       }
     ],
     responses: [
@@ -2364,7 +2346,7 @@ defmodule BlockScoutWeb.Etherscan do
     <div class="m-2">
     curl -d '{"addressHash":"0xc63BB6555C90846afACaC08A0F0Aa5caFCB382a1","compilerVersion":"v0.5.4+commit.9549d8ff",
     "contractSourceCode":"pragma solidity ^0.5.4; \ncontract Test {\n}","name":"Test","optimization":false}'
-    -H "Content-Type: application/json" -X POST  "https://blockscout.com/poa/sokol/api?module=contract&action=verify"
+    -H "Content-Type: application/json" -X POST  "https://cronos.org/explorer/api?module=contract&action=verify"
     </pre>
     </div>
     </div>

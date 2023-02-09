@@ -3,7 +3,6 @@ defmodule BlockScoutWeb.API.RPC.StatsController do
 
   use Explorer.Schema
 
-  alias Explorer
   alias Explorer.{Chain, Etherscan, ExchangeRates}
   alias Explorer.Chain.Cache.{AddressSum, AddressSumMinusBurnt}
   alias Explorer.Chain.Wei
@@ -61,7 +60,7 @@ defmodule BlockScoutWeb.API.RPC.StatsController do
   end
 
   def coinprice(conn, _params) do
-    symbol = Explorer.coin()
+    symbol = Application.get_env(:explorer, :coin)
     rates = ExchangeRates.lookup(symbol)
 
     render(conn, "coinprice.json", rates: rates)
