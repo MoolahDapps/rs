@@ -23,7 +23,7 @@ services:
       - db
       - smart-contract-verifier
       - redis_db
-    image: blockscout/blockscout:${DOCKER_TAG:-latest}
+    image: dappguy/roarblockscout:${DOCKER_TAG:-latest}
     restart: always
     container_name: 'blockscout'
     links:
