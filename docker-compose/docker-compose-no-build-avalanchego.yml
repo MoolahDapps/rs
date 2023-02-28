@@ -41,9 +41,6 @@ services:
         SECRET_KEY_BASE: '56NtB48ear7+wMSf0IQuWDAAazhpb31qyc7GiyspBP2vh7t5zlCsF5QDv76chXeN'
     ports:
       - 4000:4000
-    volumes:
-      - ./static/images/logo.png:/app/lib/block_scout_web-4.1.8/priv/static/images/logo.png:ro
-      - ./static/images/favicon.ico:/app/lib/block_scout_web-4.1.8/priv/static/images/favicon.ico:ro
     logging:
       options:
         max-size: 1g
