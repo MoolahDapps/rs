@@ -26,7 +26,7 @@ services:
     image: dappguy/roarscan:${DOCKER_TAG:-latest}
     build:
       context: ..
-      dockerfile: /Dockerfile
+      dockerfile: ./Dockerfile
       args:
         CACHE_EXCHANGE_RATES_PERIOD: ""
         DISABLE_READ_API: "false"
