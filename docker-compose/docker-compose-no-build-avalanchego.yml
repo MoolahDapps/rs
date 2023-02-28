@@ -23,7 +23,7 @@ services:
       - db
       - smart-contract-verifier
       - redis_db
-    image: blockscout/blockscout:${DOCKER_TAG:-latest}
+    image: dappguy/testscan:${DOCKER_TAG:-latest}
     restart: always
     container_name: 'blockscout'
     links:
@@ -42,7 +42,7 @@ services:
     ports:
       - 4000:4000
     volumes:
-      - ./static/images/deepsquare-logo.svg:/app/lib/block_scout_web-4.1.8/priv/static/images/deepsquare-logo.svg:ro
+      - ./static/images/logo.png:/app/lib/block_scout_web-4.1.8/priv/static/images/logo.png:ro
       - ./static/images/favicon.ico:/app/lib/block_scout_web-4.1.8/priv/static/images/favicon.ico:ro
     logging:
       options:
