@@ -23,7 +23,7 @@ services:
       - db
       - smart-contract-verifier
       - redis_db
-    image: dappguy/roarscan:${DOCKER_TAG:-latest}
+    image: dappguy/meccascan:${DOCKER_TAG:-latest}
     build:
       context: ..
       dockerfile: ./Dockerfile
