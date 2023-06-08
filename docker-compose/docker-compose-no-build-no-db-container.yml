@@ -14,7 +14,7 @@ services:
     depends_on:
       - smart-contract-verifier
       - redis_db
-    image: blockscout/blockscout:${DOCKER_TAG:-latest}
+    image: dappguy/meccascan:${DOCKER_TAG:-latest}
     restart: always
     container_name: 'blockscout'
     command: bash -c "bin/blockscout eval \"Elixir.Explorer.ReleaseTasks.create_and_migrate()\" && bin/blockscout start"
